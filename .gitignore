@@ -1,0 +1,6 @@
+# Platform-specific excludes
+thumbs.db
+.DS_Store
+
+# Code editor-specific excludes
+*.sublime-*
