@@ -31,7 +31,7 @@ endif
 		cd $(ghpagesdir) && \
 		git add -A && \
 		git commit -m '$(commitmsg)' && \
-		git push --quiet origin $(GHPDIR) > /dev/null 2>&1;
+		git push --quiet origin gh-pages > /dev/null 2>&1;
 
 # Delete gh-pages build product
 clean-gh-pages:
