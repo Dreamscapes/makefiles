@@ -44,7 +44,7 @@ That's it! Now, when you run `make test`, the `lint` target will be executed fir
 
 ### Examples
 
-Take a look at the *Makefile.example* file for some inspiration.
+Take a look at the *Makefile-example.mk* file for some inspiration.
 
 ## License
 
