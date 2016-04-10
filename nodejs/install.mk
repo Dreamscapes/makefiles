@@ -1,6 +1,6 @@
 # Install dependencies (added for compatibility reasons with usual workflows with make, .e. calling
 # make && make install)
-node_modules:
+node_modules: package.json
 	@npm install
 
 install: node_modules
