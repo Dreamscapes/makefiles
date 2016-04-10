@@ -3,7 +3,7 @@
 # By default, lint files in these locations
 lintfiles ?= lib test index.js
 
-lint:
+lint: node_modules
 	@$(bindir)eslint $(lintfiles)
 
 .PHONY: lint

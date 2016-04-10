@@ -3,7 +3,7 @@
 docdir ?= docs
 jsdocconf ?= jsdoc.json
 
-docs:
+docs: node_modules
 	@$(bindir)jsdoc --configure $(jsdocconf) --destination $(docdir)
 
 # Delete docs

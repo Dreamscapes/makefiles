@@ -1,5 +1,5 @@
 # Generate coverage report (html report available in coverage/lcov-report)
-coverage:
+coverage: node_modules
 	@$(bindir)istanbul cover $(bindir)_mocha > /dev/null -- $(testflags)
 
 clean-coverage:
