@@ -4,7 +4,7 @@ These targets are suitable for the Node.js platform.
 
 #### install
 
-Runs `npm install`. Just a handy alias if you are used to work with Make.
+Runs `npm prune && npm install`. Just a handy alias if you are used to work with Make.
 
 #### test
 
