@@ -4,12 +4,12 @@ ghpagesdir ?= gh-pages
 ghpagessrc ?= docs
 
 # Travis cannot access our repo with a username - a token must be exported into GH_TOKEN env var
-ghuser := $(if ${GH_TOKEN},${GH_TOKEN},$(ghuser))
+ghtoken := $(if ${GH_TOKEN},${GH_TOKEN},$(ghuser))
 # This will usually not change, but if someone forks our repo, this should make sure Travis will
 # not try to update the source repo
-ghrepo ?= $(shell git remote -v | grep origin | grep fetch | cut -d : -f 2 | cut -d . -f 1)
+ghremote ?= $(shell git remote -v | grep origin | grep fetch | cut -d : -f 2 | cut -d . -f 1)
 # If running on Travis, use the Travis-provided repository information
-ghrepo := $(if ${TRAVIS_REPO_SLUG},${TRAVIS_REPO_SLUG},$(ghrepo))
+ghrepo := $(if ${TRAVIS_REPO_SLUG},${TRAVIS_REPO_SLUG},$(ghremote))
 
 # Set commit message depending on platform
 ifdef TRAVIS
@@ -26,7 +26,7 @@ ifdef TRAVIS
 	@git config --global user.email "travis@travis-ci.org"
 endif
 	@git clone --no-checkout --branch=gh-pages \
-			https://$(ghuser)@github.com/$(ghrepo).git $(ghpagesdir) > /dev/null 2>&1 && \
+			https://$(ghtoken)@github.com/$(ghrepo).git $(ghpagesdir) > /dev/null 2>&1 && \
 		cp -R $(ghpagessrc)/ $(ghpagesdir) && \
 		cd $(ghpagesdir) && \
 		git add -A && \
