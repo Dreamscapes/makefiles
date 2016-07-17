@@ -27,11 +27,10 @@ ifdef TRAVIS
 endif
 	@git clone --no-checkout --branch=gh-pages \
 			https://$(ghtoken)@github.com/$(ghrepo).git $(ghpagesdir) > /dev/null 2>&1 && \
-		cp -R $(ghpagessrc)/ $(ghpagesdir) && \
-		cd $(ghpagesdir) && \
+		cd $(ghpagesdir) && cp -a ../$(ghpagessrc)/. . && \
 		git add -A && \
-		git commit -m '$(commitmsg)' && \
-		git push --quiet origin gh-pages > /dev/null 2>&1;
+		git commit -m '$(commitmsg)'
+		# git push --quiet origin gh-pages > /dev/null 2>&1;
 
 # Delete gh-pages build product
 clean-gh-pages:
